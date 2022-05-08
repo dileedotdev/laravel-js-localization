@@ -3,6 +3,9 @@
 namespace Dinhdjj\JsLocalization;
 
 use Dinhdjj\JsLocalization\Commands\JsLocalizationCommand;
+use Dinhdjj\JsLocalization\Facades\JsLocalization;
+use Dinhdjj\JsLocalization\JsLocalization as MainJsLocalization;
+use Illuminate\Support\Facades\Blade;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -22,5 +25,25 @@ class JsLocalizationServiceProvider extends PackageServiceProvider
             // ->hasMigration('create_js-localization_table')
             ->hasCommand(JsLocalizationCommand::class)
         ;
+    }
+
+    public function packageRegistered(): void
+    {
+        $this->app->bind('js-localization', fn () => new MainJsLocalization());
+    }
+
+    public function packageBooted(): void
+    {
+        Blade::directive('jslocalization', function () {
+            $langs = json_encode(JsLocalization::getLangs());
+            $locale = $this->app->getLocale();
+            $mainJs = file_get_contents(__DIR__.'/../dist/main.js');
+
+            return '<script type="text/javascript">'
+                ."window._jsLocalization={locale:'{$locale}',langs:{$langs},}"
+                .$mainJs
+                .'</script>'
+            ;
+        });
     }
 }

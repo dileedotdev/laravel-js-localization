@@ -17,7 +17,28 @@ composer require dinhdjj/js-localization
 
 ## Usage
 
-```php
+This package minify step to usage. You just add directive `@jslocalization` to blade layout.
+
+```html
+   <!-- resources/view/app.blade.com -->
+<!DOCTYPE html>
+<html>
+    <head>
+
+        @jslocalization
+
+        <!-- other js -->
+    </head>
+    <body class="font-sans antialiased">
+        <!--  -->
+    </body>
+</html>
+```
+
+And you must remember that when you update this package or update lang files. You should run below command to make it effect
+
+```bash
+    php artisan view:cache
 ```
 
 ## Testing

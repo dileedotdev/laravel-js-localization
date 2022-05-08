@@ -1,11 +1,13 @@
 {
     "name": "dinhdjj/laravel-js-localization",
-    "description": "Give ability to uses laravel's `trans` function in js",
+    "description": "Give ability to uses laravel's `trans` & `trans_choice` function in js",
     "keywords": [
         "dinhdjj",
         "laravel",
         "js-localization",
-        "laravel-js-localization"
+        "laravel-js-localization",
+        "laravel trans",
+        "laravel trans_choice"
     ],
     "homepage": "https://github.com/dinhdjj/js-localization",
     "license": "MIT",
