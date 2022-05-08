@@ -1,0 +1,6 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+vendor/bin/phpstan analyse --ansi
+vendor/bin/pest
+npx lint-staged
