@@ -1,10 +1,11 @@
 {
-    "name": "dinhdjj/js-localization",
+    "name": "dinhdjj/laravel-js-localization",
     "description": "Give ability to uses laravel's `trans` function in js",
     "keywords": [
         "dinhdjj",
         "laravel",
-        "js-localization"
+        "js-localization",
+        "laravel-js-localization"
     ],
     "homepage": "https://github.com/dinhdjj/js-localization",
     "license": "MIT",
