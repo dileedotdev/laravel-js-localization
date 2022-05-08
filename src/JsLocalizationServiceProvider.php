@@ -2,9 +2,9 @@
 
 namespace Dinhdjj\JsLocalization;
 
+use Dinhdjj\JsLocalization\Commands\JsLocalizationCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Dinhdjj\JsLocalization\Commands\JsLocalizationCommand;
 
 class JsLocalizationServiceProvider extends PackageServiceProvider
 {
@@ -20,6 +20,7 @@ class JsLocalizationServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             // ->hasViews()
             // ->hasMigration('create_js-localization_table')
-            ->hasCommand(JsLocalizationCommand::class);
+            ->hasCommand(JsLocalizationCommand::class)
+        ;
     }
 }
