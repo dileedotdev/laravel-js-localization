@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Dinhdjj\JsLocalization\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class JsLocalizationCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'js-localization';
 
     public $description = 'My command';
 

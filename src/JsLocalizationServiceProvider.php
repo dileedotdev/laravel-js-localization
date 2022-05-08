@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace Dinhdjj\JsLocalization;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use VendorName\Skeleton\Commands\SkeletonCommand;
+use Dinhdjj\JsLocalization\Commands\JsLocalizationCommand;
 
-class SkeletonServiceProvider extends PackageServiceProvider
+class JsLocalizationServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -16,10 +16,10 @@ class SkeletonServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('skeleton')
+            ->name('js-localization')
             ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_skeleton_table')
-            ->hasCommand(SkeletonCommand::class);
+            // ->hasViews()
+            // ->hasMigration('create_js-localization_table')
+            ->hasCommand(JsLocalizationCommand::class);
     }
 }

@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "dinhdjj/js-localization",
+    "description": "Give ability to uses laravel's `trans` function in js",
     "keywords": [
-        ":vendor_name",
+        "dinhdjj",
         "laravel",
-        ":package_slug"
+        "js-localization"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/dinhdjj/js-localization",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "dinhdjj",
+            "email": "dinhdjj@gmail.com",
             "role": "Developer"
         }
     ],
@@ -34,30 +34,34 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Dinhdjj\\JsLocalization\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Dinhdjj\\JsLocalization\\Tests\\": "tests",
+            "Dinhdjj\\JsLocalization\\Database\\Factories\\": "database/factories"
         }
     },
     "scripts": {
-        "analyse": "vendor/bin/phpstan analyse",
+        "analyse": "vendor/bin/phpstan analyse --ansi",
         "test": "vendor/bin/pest",
         "test-coverage": "vendor/bin/pest --coverage"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Dinhdjj\\JsLocalization\\JsLocalizationServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "JsLocalization": "Dinhdjj\\JsLocalization\\Facades\\JsLocalization"
             }
         }
     },
