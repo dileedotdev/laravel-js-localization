@@ -23,7 +23,7 @@ window._jsLocalization.replace = function (translation, replaces = {}) {
         translation = translation.replaceAll(`:${r}`, replaces[r]);
     });
 
-    return translation;
+    return translation.trim();
 };
 
 /**
