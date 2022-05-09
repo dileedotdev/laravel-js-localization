@@ -65,13 +65,14 @@ class JsLocalization
         ;
 
         $jsonLocales = collect(File::files(lang_path()))
-            ->map(fn ($file) => basename($file->getPath()))
+            ->map(fn ($file) => basename($file->getRealPath(), '.json'))
             ->toArray()
         ;
 
-        return array_filter(
-            array_merge($phpLocales, $jsonLocales),
-            fn ($locale) => 'vendor' !== $locale
-        );
+        return collect(array_merge($phpLocales, $jsonLocales))
+            ->filter(fn ($locale) => 'vendor' !== $locale)
+            ->unique()
+            ->toArray()
+        ;
     }
 }

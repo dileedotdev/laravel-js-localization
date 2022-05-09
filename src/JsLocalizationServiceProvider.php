@@ -2,7 +2,6 @@
 
 namespace Dinhdjj\JsLocalization;
 
-use Dinhdjj\JsLocalization\Commands\JsLocalizationCommand;
 use Dinhdjj\JsLocalization\Facades\JsLocalization;
 use Dinhdjj\JsLocalization\JsLocalization as MainJsLocalization;
 use Illuminate\Support\Facades\Blade;
@@ -20,10 +19,10 @@ class JsLocalizationServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('js-localization')
-            ->hasConfigFile()
+            // ->hasConfigFile()
             // ->hasViews()
             // ->hasMigration('create_js-localization_table')
-            ->hasCommand(JsLocalizationCommand::class)
+            // ->hasCommand(JsLocalizationCommand::class)
         ;
     }
 

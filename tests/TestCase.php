@@ -27,6 +27,7 @@ class TestCase extends Orchestra
     public function getEnvironmentSetUp($app): void
     {
         config()->set('database.default', 'testing');
+        $app->useLangPath(__DIR__.'/lang');
 
         /*
         $migration = include __DIR__.'/../database/migrations/create_js-localization_table.php.stub';
