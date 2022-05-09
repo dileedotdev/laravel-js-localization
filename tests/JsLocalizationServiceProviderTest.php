@@ -12,8 +12,8 @@ test('jslocalization blade directive', function (): void {
     $result = Blade::getCustomDirectives()['jslocalization']();
     $langs = json_encode(JsLocalization::getLangs());
     $mainJs = File::get(__DIR__.'/../dist/main.js');
-
     expect(str_contains($result, "locale:'<?php echo app()->getLocale() ?>'"))->toBe(true);
+    expect(str_contains($result, "fallbackLocale:'<?php echo app()->getFallbackLocale() ?>'"))->toBe(true);
     expect(str_contains($result, '<script type="text/javascript">'))->toBe(true);
     expect(str_contains($result, '</script>'))->toBe(true);
     expect(str_contains($result, $langs))->toBe(true);

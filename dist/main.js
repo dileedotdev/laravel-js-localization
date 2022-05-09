@@ -8,7 +8,12 @@
  * @returns {string}
  */
 window._jsLocalization.getTranslation = function (key, locale = null) {
-    return this.langs?.[locale || this.locale]?.[key] || key;
+    return (
+        this.langs?.[locale]?.[key] ||
+        this.langs?.[this.locale]?.[key] ||
+        this.langs?.[this.fallbackLocale]?.[key] ||
+        key
+    );
 };
 
 /**

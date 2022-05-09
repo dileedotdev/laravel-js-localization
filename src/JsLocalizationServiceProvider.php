@@ -38,7 +38,7 @@ class JsLocalizationServiceProvider extends PackageServiceProvider
             $mainJs = file_get_contents(__DIR__.'/../dist/main.js');
 
             return '<script type="text/javascript">'
-                ."window._jsLocalization={locale:'<?php echo app()->getLocale() ?>',langs:{$langs},}"
+                ."window._jsLocalization={locale:'<?php echo app()->getLocale() ?>',fallbackLocale:'<?php echo app()->getFallbackLocale() ?>',langs:{$langs},}"
                 .$mainJs
                 .'</script>'
             ;
