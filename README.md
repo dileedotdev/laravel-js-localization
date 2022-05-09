@@ -41,6 +41,29 @@ And you must remember that when you update this package or update lang files. Yo
     php artisan view:cache
 ```
 
+If you use typescript below lines will help you
+
+```ts
+type Trans = (key: string, replaces?: Record<string,string>, local?: string|null) => string;
+type TransChoice = (key: string, number: number, replaces?: Record<string,string>, local?: string|null) => string;
+
+declare global {
+    interface Window {
+        __: Trans;
+        trans: Trans;
+        transChoice: TransChoice;
+    }
+}
+```
+
+Finally usage in real life
+
+```js
+    window.trans('hello :name', {name: 'dinhdjj'});
+    window.__('hello :name', {name: 'dinhdjj'});
+    window.transChoice('hello :name|xin chao :name', 1,{name: 'dinhdjj'});
+```
+
 ## Testing
 
 ```bash
