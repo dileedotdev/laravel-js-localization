@@ -35,11 +35,10 @@ class JsLocalizationServiceProvider extends PackageServiceProvider
     {
         Blade::directive('jslocalization', function () {
             $langs = json_encode(JsLocalization::getLangs());
-            $locale = $this->app->getLocale();
             $mainJs = file_get_contents(__DIR__.'/../dist/main.js');
 
             return '<script type="text/javascript">'
-                ."window._jsLocalization={locale:'{$locale}',langs:{$langs},}"
+                ."window._jsLocalization={locale:'<?php echo app()->getLocale() ?>',langs:{$langs},}"
                 .$mainJs
                 .'</script>'
             ;

@@ -49,7 +49,7 @@ class JsLocalization
             $jsonTranslations = json_decode(File::get(lang_path($locale.'.json')), true);
         }
 
-        return array_merge($phpTranslations, $jsonTranslations);
+        return array_merge((array) $phpTranslations, (array) $jsonTranslations);
     }
 
     /**

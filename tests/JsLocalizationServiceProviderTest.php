@@ -8,12 +8,12 @@ it('has jslocalization blade directive', function (): void {
     expect(Blade::getCustomDirectives())->toHaveKey('jslocalization');
 });
 
-test('@jslocalization blade directive', function (): void {
+test('jslocalization blade directive', function (): void {
     $result = Blade::getCustomDirectives()['jslocalization']();
     $langs = json_encode(JsLocalization::getLangs());
     $mainJs = File::get(__DIR__.'/../dist/main.js');
 
-    expect(str_contains($result, app()->getLocale()))->toBe(true);
+    expect(str_contains($result, "locale:'<?php echo app()->getLocale() ?>'"))->toBe(true);
     expect(str_contains($result, '<script type="text/javascript">'))->toBe(true);
     expect(str_contains($result, '</script>'))->toBe(true);
     expect(str_contains($result, $langs))->toBe(true);
